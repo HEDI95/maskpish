@@ -1,0 +1,75 @@
+MIT License
+
+Copyright (c) 2020 KaliLinuxIn
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+ 12 changes: 10 additions & 2 deletions12  
+README.md
+@@ -1,2 +1,10 @@
+# maskphish
+Give a Mask to Phishing URL like a PRO
+## MaskPhish
+┌──────────────────────────┐
+│▙▗▌      ▌  ▛▀▖▌  ▗    ▌  │
+│▌▘▌▝▀▖▞▀▘▌▗▘▙▄▘▛▀▖▄ ▞▀▘▛▀▖│
+│▌ ▌▞▀▌▝▀▖▛▚ ▌  ▌ ▌▐ ▝▀▖▌ ▌│
+│▘ ▘▝▀▘▀▀ ▘ ▘▘  ▘ ▘▀▘▀▀ ▘ ▘│
+└──────────────────────────┘
+# MaskPhish is a simple script to hide phishing URL under a normal lokking URL.
+<p>MaskPhish is made by KaliLinuxIN</p>
+
+ 38 changes: 38 additions & 0 deletions38  
+maskphish.sh
+@@ -0,0 +1,38 @@
+# Bash Script for Hide Phishing URL
+echo
+echo
+echo -e "\e[1;31;42m######┌──────────────────────────┐##### \e[0m"
+echo -e "\e[1;31;42m######│▙▗▌      ▌  ▛▀▖▌  ▗    ▌  │##### \e[0m"
+echo -e "\e[1;31;42m######│▌▘▌▝▀▖▞▀▘▌▗▘▙▄▘▛▀▖▄ ▞▀▘▛▀▖│##### \e[0m"
+echo -e "\e[1;31;42m######│▌ ▌▞▀▌▝▀▖▛▚ ▌  ▌ ▌▐ ▝▀▖▌ ▌│##### \e[0m"
+echo -e "\e[1;31;42m######│▘ ▘▝▀▘▀▀ ▘ ▘▘  ▘ ▘▀▘▀▀ ▘ ▘│##### \e[0m"
+echo -e "\e[1;31;42m######└──────────────────────────┘##### \e[0m"
+echo
+echo -e "\e[40;38;5;82m Please Visit \e[30;48;5;82m https://www.kalilinux.in \e[0m"
+echo -e "\e[30;48;5;82m    Copyright \e[40;38;5;82m   KaliKinuxIn \e[0m"
+echo
+echo
+echo -e "\e[1;31;42m ### Phishing URL ###\e[0m"
+echo
+echo -n "Paste Phishing URL here (with http or https): "
+read phish
+short=$(curl -s https://da.gd/s/?url=${phish})
+shorter=${short#https://}
+echo
+echo -e "\e[1;31;42m ### Masking URL ###\e[0m"
+echo 'URL to mask the Phishing URL (with http or https), ex https://google.com, http
+://anything.org) :'
+read mask
+echo
+echo 'Type social engineering words:(like free-money, best-pubg-tricks)'
+echo
+read words
+echo
+echo 'Generating MaskPhish Link...'
+echo
+echo 'Here is the MaskPhish URL..'
+echo
+final=$mask-$words@$shorter
+echo $final
